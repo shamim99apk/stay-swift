@@ -2,8 +2,16 @@ import HotelList from "@/components/hotel/HotelList";
 import Filter from "@/components/search/Filter";
 import Search from "@/components/search/Search";
 
+const refineCategory = (category) => {
+  const decodedCategory = decodeURI(category);
+  if (decodedCategory === "undefined") {
+    return "";
+  }
+  return decodedCategory;
+};
+
 const HotelListPage = async ({
-  searchParams: { destination, checkin, checkout },
+  searchParams: { destination, checkin, checkout, category },
 }) => {
   return (
     <>
@@ -24,6 +32,7 @@ const HotelListPage = async ({
             destination={destination}
             checkin={checkin}
             checkout={checkout}
+            category={refineCategory(category)}
           />
         </div>
       </section>
