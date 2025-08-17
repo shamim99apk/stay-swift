@@ -8,9 +8,8 @@ const UpcomingBooking = ({ bookings }) => {
       {bookings &&
         bookings.length > 0 &&
         bookings.map((booking) => (
-          <div id={booking.id} className="bg-[#ebf6e9] p-4 rounded-md">
+          <div key={booking.id} className="bg-[#ebf6e9] p-4 rounded-md">
             <BookingCard
-              key={booking.id}
               hotelId={booking.hotelId}
               checkin={booking.checkin}
               checkout={booking.checkout}
